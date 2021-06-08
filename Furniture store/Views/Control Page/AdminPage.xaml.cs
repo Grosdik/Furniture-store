@@ -36,5 +36,10 @@ namespace Furniture_store.Views.Control_Page
         {
             Transfer.MainFrame.Navigate(new AdminUsersPage());       
         }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

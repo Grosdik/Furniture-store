@@ -18,6 +18,7 @@ namespace Furniture_store.Views
     /// <summary>
     /// Логика взаимодействия для StartWindow.xaml
     /// </summary>
+    /// #4E3184 - purple  #F2E0D7 - тт
     public partial class StartWindow : Window
     {
         public StartWindow()

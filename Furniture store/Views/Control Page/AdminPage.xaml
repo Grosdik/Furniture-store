@@ -21,7 +21,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Button Content="Пользователи" Name="btnUsers" Grid.Row="2" Click="btnUsers_Click"/>
+            <Button Content="Пользователи" Name="btnUsers" Click="btnUsers_Click"/>
+            <Button Content="Очистить историю" Name="btnClear" Click="btnClear_Click"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Furniture_store.Views"
         mc:Ignorable="d"
-        Title="Мебельный магазин Best Furniture" Height="450" Width="800">
+        Title="Мебельный магазин Best Furniture" Height="450" Width="800" Icon="/Resources/logo.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
@@ -15,13 +15,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Background="#F2E0D7"/>
-        <Grid Grid.Row="1" Grid.Column="0" Background="#F2E0D7"/>
-        <Grid Grid.Row="1" Grid.Column="1" Background="##F2E0D7"/>
-
+        <Grid Grid.Row="0" Grid.Column="0" Background="#4E3184"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="#4E3184"/>
+        <Grid Grid.Row="1" Grid.Column="1" Background="#4E3184"/>
+        
         <Frame Grid.Row="0" Grid.Column="1" Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="mainFrame_ContentRendered"/>
 
-        
+        <Image Source="/Resources/logo.png" VerticalAlignment="Top"/>
+
         <TextBlock Text="Best Furniture" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
 
         <StackPanel VerticalAlignment="Bottom">
