@@ -32,7 +32,7 @@
         <TextBox Text="{Binding Cost}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
         <TextBox Text="{Binding Quantity}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"/>
         <ComboBox SelectedItem="{Binding Suppliers}" Name="ComboSupplier" DisplayMemberPath="Company" Grid.Column="1" Grid.Row="3" Width="175" HorizontalAlignment="Left"/>
-        <ComboBox SelectedItem="{Binding TypeOfFurniture}" Name="ComboTypeOfFurniture" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="4" Width="175" HorizontalAlignment="Left"/>
+        <TextBox Text="{Binding TypeOfFurniture}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
 
         <Button Grid.Column="1" Grid.Row="6" Name="btnSave" Content="Сохранить" VerticalAlignment="Center" Margin="120,0,360,0" Click="btnSave_Click" />
     </Grid>

@@ -27,7 +27,6 @@ namespace Furniture_store.Views.AddEditPage
         {
             InitializeComponent();
             ComboSupplier.ItemsSource = Furniture_storeEntities.GetContext().Suppliers.ToList();
-            ComboTypeOfFurniture.ItemsSource = Furniture_storeEntities.GetContext().TypeOfFurniture.ToList();
             if (selectedProduct != null)
             {
                 _currentProduct = selectedProduct;
@@ -54,7 +53,7 @@ namespace Furniture_store.Views.AddEditPage
             {
                 errors.AppendLine("Укажите поставщика!");
             }
-            if (_currentProduct.TypeOfFurniture1 == null)
+            if (string.IsNullOrWhiteSpace(_currentProduct.TypeOfFurniture))
             {
                 errors.AppendLine("Укажите тип фурнитуры!");
             }

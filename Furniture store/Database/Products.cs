@@ -25,11 +25,10 @@ namespace Furniture_store.Database
         public int Cost { get; set; }
         public int Quantity { get; set; }
         public int Supplier { get; set; }
-        public int TypeOfFurniture { get; set; }
+        public string TypeOfFurniture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
         public virtual Suppliers Suppliers { get; set; }
-        public virtual TypeOfFurniture TypeOfFurniture1 { get; set; }
     }
 }

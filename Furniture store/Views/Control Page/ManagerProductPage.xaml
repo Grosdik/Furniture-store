@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Furniture_store.Views.Control_Page"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ManagerProductPage">
+      Title="ManagerProductPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <Grid.RowDefinitions>

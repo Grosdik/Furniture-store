@@ -64,5 +64,14 @@ namespace Furniture_store.Views.Control_Page
                 }
             }
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Furniture_storeEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                dataGridProducts.ItemsSource = Furniture_storeEntities.GetContext().Products.ToList();
+            }
+        }
     }
 }

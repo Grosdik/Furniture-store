@@ -111,9 +111,6 @@
     <Compile Include="Database\sysdiagrams.cs">
       <DependentUpon>BasicModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\TypeOfFurniture.cs">
-      <DependentUpon>BasicModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Database\Users.cs">
       <DependentUpon>BasicModel.tt</DependentUpon>
     </Compile>
@@ -141,6 +138,9 @@
     </Compile>
     <Compile Include="Views\Control Page\ManagerProductPage.xaml.cs">
       <DependentUpon>ManagerProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Control Page\PrintPage.xaml.cs">
+      <DependentUpon>PrintPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
@@ -213,14 +213,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Control Page\PrintPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\BasicModel.Context.tt">
@@ -233,6 +233,11 @@
       <DependentUpon>BasicModel.edmx</DependentUpon>
       <LastGenOutput>BasicModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

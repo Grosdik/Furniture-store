@@ -41,7 +41,6 @@ namespace Furniture_store.Database
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<TypeOfFurniture> TypeOfFurniture { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }
