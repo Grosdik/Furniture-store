@@ -43,6 +43,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
             <Button Content="Добавить" Name="btnAddClient" Click="btnAddClient_Click"/>
             <Button Content="Удалить" Name="btnDeleteClient" Click="btnDeleteClient_Click"/>
+            <Button Content="" Name="btnPrint" Click="btnPrint_Click"/>
         </StackPanel>
     </Grid>
 </Page>

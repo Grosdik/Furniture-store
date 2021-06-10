@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace Furniture_store.Views.Control_Page
 {
@@ -23,6 +24,7 @@ namespace Furniture_store.Views.Control_Page
     /// </summary>
     public partial class ManagerPage : Page
     {
+        private Word.Document document = null;
         private List<Clients> Clients;
         public ManagerPage()
         {
@@ -77,6 +79,90 @@ namespace Furniture_store.Views.Control_Page
         private void btnProduct_Click(object sender, RoutedEventArgs e)
         {
             Transfer.MainFrame.Navigate(new ManagerProductPage());
+        }
+        private void BtnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            FormDocument();
+
+            document.Application.Dialogs[Microsoft.Office.Interop.Word.WdWordDialog.wdDialogFilePrint].Show();
+            document.Application.Quit();
+            document = null;
+
+            // даёт доступ к элементам окна StartWindow
+            StartWindow startWindow = (StartWindow)Application.Current.MainWindow;
+
+            startWindow.StartWindows1.WindowState = WindowState.Minimized;
+        }
+
+        private void FormDocument()
+        {
+            try
+            {
+                var rows = dataGridClients.ItemsSource.Cast<Clients>().ToList();
+                if (rows.Count == 0)
+                {
+                    MessageBox.Show("Нет выбранных книг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                var app = new Word.Application();
+                document = app.Documents.Add();
+                Word.Paragraph tableParagraph = document.Paragraphs.Add();
+                Word.Range tableRange = tableParagraph.Range;
+                Word.Table table = document.Tables.Add(tableRange, rows.Count + 1, 6);
+                table.Borders.InsideLineStyle = table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                table.Range.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                Word.Range cellRange;
+                cellRange = table.Cell(1, 1).Range;
+                cellRange.Text = "№";
+                cellRange = table.Cell(1, 2).Range;
+                cellRange.Text = "Имя клиента";
+                cellRange = table.Cell(1, 3).Range;
+                cellRange.Text = "Фамилия клиента";
+                cellRange = table.Cell(1, 4).Range;
+                cellRange.Text = "Показания холодной воды";
+                cellRange = table.Cell(1, 5).Range;
+                cellRange.Text = "Показания горячей воды";
+                cellRange = table.Cell(1, 6).Range;
+                cellRange.Text = "Дата";
+
+                table.Rows[1].Range.Bold = 1;
+                int currentRow = 1;
+                foreach (var row in rows)
+                {
+                    currentRow++;
+                    cellRange = table.Cell(currentRow, 1).Range;
+                    cellRange.Text = row.Id.ToString();
+
+                    cellRange = table.Cell(currentRow, 2).Range;
+                    cellRange.Text = row.Name;
+
+                    cellRange = table.Cell(currentRow, 3).Range;
+                    cellRange.Text = row.Surname;
+
+                    cellRange = table.Cell(currentRow, 4).Range;
+                    cellRange.Text = row.Patronymic.ToString();
+
+                    cellRange = table.Cell(currentRow, 5).Range;
+                    cellRange.Text = row.City.ToString();
+
+                    cellRange = table.Cell(currentRow, 6).Range;
+                    cellRange.Text = row.Address.ToString();
+
+                    cellRange = table.Cell(currentRow, 7).Range;
+                    cellRange.Text = row.Phone.ToString();
+                }
+
+                document.Paragraphs.Add();
+                Word.Paragraph sum = document.Paragraphs.Add();
+                sum.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                Word.Range sumRange = sum.Range;
+                sumRange.Bold = 1;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка в формировании отчета", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
