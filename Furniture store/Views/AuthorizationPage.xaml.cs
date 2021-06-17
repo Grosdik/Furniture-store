@@ -49,6 +49,8 @@ namespace Furniture_store.Views
                     {
                         MessageBox.Show("Вы успешно авторизированы!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                         Transfer.MainFrame.Navigate(new AdminPage());
+                        DateTime dt = DateTime.Now;
+                        AuthHistory history = new AuthHistory();
                         return;
                     }
                     else if ((_userRoleId == 2) && (_userPass == txtPassword.Password))
